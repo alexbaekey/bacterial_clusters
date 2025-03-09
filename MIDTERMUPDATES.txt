@@ -1,0 +1,10 @@
+What I did so far:
+
+Downloaded GTDB (~700gb, took ~1day)
+Downloaded NCBI bacteria assembly summary
+
+Identifying where type strains are for each
+Done for NCBI, see ~/Desktop/bioinfo/BIOINFO_FINAL/NCBI_type_strains.txt
+
+>618 type strains, but with duplicates
+

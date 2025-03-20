@@ -1,0 +1,60 @@
+.
+├── ar53_metadata_r220.tsv.gz
+├── ar53_r220.tree
+├── ar53_r220.tree.gz
+├── ar53_taxonomy_r220.tsv
+├── ar53_taxonomy_r220.tsv.gz
+├── auxillary_files
+│   ├── ar53_msa_marker_info_r220.tsv
+│   ├── ar53_msa_mask_r220.txt
+│   ├── ar53_r220.sp_labels.tree
+│   ├── bac120_msa_marker_info_r220.tsv
+│   ├── bac120_msa_mask_r220.txt
+│   ├── bac120_r220.sp_labels.tree
+│   ├── gtdb_r220.dic
+│   ├── gtdbtk_package
+│   ├── gtdb_vs_ncbi_r220_archaea.xlsx
+│   ├── gtdb_vs_ncbi_r220_bacteria.xlsx
+│   ├── hq_mimag_genomes_r220.tsv
+│   ├── metadata_field_desc.tsv
+│   ├── ncbi_taxdump_20230912.tar.gz
+│   ├── ncbi_vs_gtdb_r220_archaea.xlsx
+│   ├── ncbi_vs_gtdb_r220_bacteria.xlsx
+│   ├── qc_failed_r220.tsv
+│   ├── sp_clusters_r220.tsv
+│   ├── synonyms.ar53_r220.tsv
+│   └── synonyms.bac120_r220.tsv
+├── bac120_metadata_r220.tsv.gz
+├── bac120_r220.tree
+├── bac120_r220.tree.gz
+├── bac120_taxonomy_r220.tsv
+├── bac120_taxonomy_r220.tsv.gz
+├── deprecated
+│   └── 20240502
+├── FILE_DESCRIPTIONS.txt
+├── genomic_files_all
+│   ├── ar53_marker_genes_all_r220.tar.gz
+│   ├── ar53_msa_marker_genes_all_r220.tar.gz
+│   ├── bac120_marker_genes_all_r220.tar.gz
+│   ├── bac120_msa_marker_genes_all_r220.tar.gz
+│   ├── ssu_all_r220.fna
+│   └── ssu_all_r220.fna.gz
+├── genomic_files_reps
+│   ├── ar53_marker_genes_reps_r220.tar.gz
+│   ├── ar53_msa_marker_genes_reps_r220.tar.gz
+│   ├── ar53_msa_reps_r220.faa.gz
+│   ├── ar53_ssu_reps_r220.fna.gz
+│   ├── bac120_marker_genes_reps_r220.tar.gz
+│   ├── bac120_msa_marker_genes_reps_r220.tar.gz
+│   ├── bac120_msa_reps_r220.faa.gz
+│   ├── bac120_ssu_reps_r220.fna.gz
+│   ├── gtdb_genomes_reps_r220
+│   ├── gtdb_genomes_reps_r220.tar.gz
+│   ├── gtdb_proteins_aa_reps_r220.tar.gz
+│   └── gtdb_proteins_nt_reps_r220.tar.gz
+├── MD5SUM.txt
+├── METHODS.txt
+├── RELEASE_NOTES.txt
+└── VERSION.txt
+
+8 directories, 50 files

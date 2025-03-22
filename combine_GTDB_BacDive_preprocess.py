@@ -1,7 +1,7 @@
 import pandas as pd
 
 gtdb_df = pd.read_csv('data/GTDB_typestrains_meta_filtered.csv')
-bacdive_df = pd.read_csv('data/bacdive_typestrains_filtered.csv')
+bacdive_df = pd.read_csv('data/bacdive_typestrains_filtered.csv') # warning about mixing types in columns (list/str)
 
 bacdive_df.rename(columns={'Species': 'species'}, inplace=True)
 

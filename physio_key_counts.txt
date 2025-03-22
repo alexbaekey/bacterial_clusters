@@ -1,0 +1,341 @@
+@ref: 687322
+metabolite: 388189
+Chebi-ID: 365386
+utilization activity: 350973
+kind of utilization tested: 343071
+value: 209530
+activity: 209466
+ec: 154775
+oxygen tolerance: 26860
+percentage: 24651
+fatty acid: 24601
+concentration: 17694
+tested relation: 17662
+salt: 17661
+growth: 17310
+is antibiotic: 14935
+observation: 14655
+ChEBI: 13719
+production: 13609
+metabolite utilization: 11162
+enzymes: 10508
+is sensitive: 10249
+spore formation: 10246
+halophily: 7947
+metabolite production: 7522
+MAL: 7253
+MAN: 7228
+sensitivity conc.: 7026
+ESC: 6421
+MNE: 6330
+URE: 6177
+SAC: 6089
+is resistant: 5879
+GLU: 5746
+ECL: 5423
+NAG: 5230
+RAF: 5091
+LAC: 5040
+GNT: 5003
+RIB: 4940
+metabolite tests: 4934
+Lipase: 4909
+Cystine arylamidase: 4908
+Trypsin: 4908
+alpha- Chymotrypsin: 4908
+Alkaline phosphatase: 4907
+Esterase: 4907
+beta- Glucuronidase: 4907
+N-acetyl-beta- glucosaminidase: 4907
+Esterase Lipase: 4906
+Acid phosphatase: 4906
+alpha- Glucosidase: 4906
+alpha- Mannosidase: 4906
+Valine arylamidase: 4905
+alpha- Galactosidase: 4905
+beta- Galactosidase: 4905
+beta- Glucosidase: 4905
+Leucine arylamidase: 4904
+Naphthol-AS-BI-phosphohydrolase: 4904
+alpha- Fucosidase: 4904
+ADH Arg: 4376
+CIT: 4371
+API zym: 4236
+MEL: 4211
+TRE: 4179
+FRU: 4050
+RHA: 4019
+ARA: 4012
+SOR: 3952
+Control: 3907
+MLZ: 3881
+GEL: 3852
+DARL: 3831
+INO: 3821
+TAG: 3790
+CEL: 3718
+resistance conc.: 3667
+voges-proskauer-test: 3538
+TUR: 3532
+GLY: 3457
+indole test: 3399
+MDG: 3372
+ADO: 3353
+LARL: 3353
+5KG: 3350
+XLT: 3319
+ERY: 3312
+GAL: 3312
+SBE: 3312
+DUL: 3312
+GEN: 3312
+LYX: 3312
+2KG: 3310
+PAL: 3283
+GLYG: 3197
+PAC: 3162
+CAP: 3161
+beta GAL: 3150
+IND: 2669
+beta GUR: 2640
+XYL: 2577
+beta NAG: 2389
+antibiotic resistance: 2361
+LARA: 2308
+AMY: 2298
+NIT: 2237
+fatty acids: 2074
+type of FA analysis: 2073
+SAL: 1987
+fatty acid profile: 1976
+alpha GLU: 1967
+INU: 1871
+AMD: 1871
+MLT: 1856
+DARA: 1842
+DXYL: 1842
+LXYL: 1842
+MDX: 1842
+MDM: 1842
+ARB: 1842
+DFUC: 1842
+LFUC: 1842
+ODC: 1819
+VP: 1722
+system: 1697
+GLU_ Ferm: 1692
+GLU_ Assim: 1692
+ADI: 1692
+TRP: 1691
+PNPG: 1690
+NO3: 1689
+compound: 1686
+incubation temperature: 1639
+PROP: 1632
+OX: 1625
+incubation medium: 1618
+methylred-test: 1601
+PyrA: 1595
+API 50CHac: 1561
+PLE: 1511
+GAT: 1511
+MNT: 1509
+API biotype100: 1470
+MTE: 1470
+LTE: 1470
+MbGa: 1470
+MaGa: 1470
+MbGu: 1470
+FUC: 1470
+MTL: 1470
+HBG: 1470
+3MDG: 1470
+SAT: 1470
+MUC: 1470
+LTAT: 1470
+DTAT: 1470
+MTAT: 1470
+DMLT: 1470
+LMLT: 1470
+CATE: 1470
+TATE: 1470
+TTE: 1470
+GRT: 1470
+TRY: 1470
+PAT: 1470
+pOBE: 1470
+QAT: 1469
+GTE: 1469
+mOBE: 1469
+BAT: 1469
+PPAT: 1469
+CMT: 1469
+TGE: 1469
+BET: 1469
+PCE: 1469
+ABT: 1469
+HIN: 1469
+LAT: 1469
+CYT: 1469
+HIS: 1469
+SUC: 1469
+FUM: 1468
+GRE: 1468
+GYT: 1468
+AVT: 1468
+ETN: 1468
+TTN: 1468
+GLN: 1468
+ITA: 1468
+3OBU: 1468
+APT: 1468
+GTT: 1468
+PRO: 1468
+DALA: 1468
+LALA: 1468
+SER: 1468
+TYR: 1468
+2KT: 1468
+ProA: 1459
+alpha GAL: 1446
+beta GLU: 1420
+type: 1348
+ArgA: 1339
+incubation time: 1337
+library/peak naming table: 1253
+API 20NE: 1235
+H2S: 1212
+PYRA: 1167
+software version: 1156
+LDC Lys: 1087
+ONPG: 1046
+TDA Trp: 1046
+cutoff value: 1042
+agar/liquid: 1022
+method/protocol: 1021
+PYZ: 961
+beta GP: 954
+alpha ARA: 954
+PheA: 953
+LeuA: 953
+GDC: 952
+alpha FUC: 952
+TyrA: 952
+AlaA: 952
+LGA: 951
+GlyA: 951
+HisA: 946
+GGA: 944
+SerA: 944
+API 20E: 897
+type of spore: 896
+API coryne: 885
+murein short key: 827
+murein: 821
+compound production: 774
+spore description: 687
+GGT: 673
+HIP: 618
+LIP: 552
+API rID32A: 525
+PEN: 507
+Q: 491
+nutrition type: 481
+Sor: 468
+beta GAR: 425
+PUL: 425
+Mbeta DG: 425
+beta MAN: 425
+GTA: 424
+CDEX: 423
+APPA: 423
+halophily level: 377
+CAT: 358
+instrument: 348
+group ID: 346
+NOVO: 220
+incubation_oxygen: 207
+AspA: 206
+API rID32STR: 204
+API NH: 188
+TTC: 166
+EST: 165
+SUT: 164
+NAL: 164
+CFZ: 164
+ACE: 164
+ERO: 164
+SD: 139
+medium: 124
+Penicillin G: 124
+oxacillin: 124
+ampicillin: 124
+ticarcillin: 124
+mezlocillin: 124
+cefalotin: 124
+cefazolin: 124
+cefotaxime: 124
+aztreonam: 124
+imipenem: 124
+tetracycline: 124
+chloramphenicol: 124
+gentamycin: 124
+amikacin: 124
+vancomycin: 124
+erythromycin: 124
+lincomycin: 124
+ofloxacin: 124
+norfloxacin: 124
+colistin: 124
+pipemidic acid: 124
+nitrofurantoin: 124
+bacitracin: 124
+polymyxin b: 124
+kanamycin: 124
+neomycin: 124
+doxycycline: 124
+ceftriaxone: 124
+clindamycin: 124
+fosfomycin: 124
+moxifloxacin: 124
+linezolid: 124
+nystatin: 124
+quinupristin/dalfopristin: 124
+teicoplanin: 124
+piperacillin/tazobactam: 124
+citrate test: 110
+API 20A: 110
+tolerance: 107
+NO2: 92
+N2: 85
+oxygen condition: 84
+API ID32STA: 84
+incubation pH: 78
+alpha MAN: 53
+G1P: 53
+DIM: 52
+API CAM: 49
+API ID32E: 41
+RP: 41
+alphaMAL: 41
+antibiogram: 36
+ADH: 36
+is intermediate: 33
+beta HEM: 31
+LAP: 29
+COCC: 28
+GRAM: 26
+intermediate conc.: 24
+API 20STR: 22
+SPOR: 20
+API LIST: 20
+API 50CHas: 9
+API STA: 7
+treatment: 7
+MAC: 6
+LSTR: 4
+OF-O: 3
+OF-F: 3
+excreted: 3
+excretion: 2
+MOB: 2

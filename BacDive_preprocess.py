@@ -1,5 +1,16 @@
+#TODO write full docstrings
+
+# Filter, can test, like in ipython, with the following
+# ast.literal_eval(df['General'][1]) 
+# parses string entries in dataframe and automatically organizes into dict
+# Then check for columns of interest and add to extract function
+
+#TODO Some entries are lists, which ast cannot deal with directly
+
+
 import pandas as pd
 import ast
+from collections import defaultdict
 
 datapath1 = '/home/ab/GitHub/alexbaekey/bacterial_clusters/data/bacdive_type_strains_results_first_half.csv'
 datapath2 = '/home/ab/GitHub/alexbaekey/bacterial_clusters/data/bacdive_type_strains_results_second_half.csv'
@@ -21,14 +32,6 @@ df.drop(columns=\
      inplace=True)
 
 
-#TODO write full docstrings
-
-# Filter, can test, like in ipython, with the following
-# ast.literal_eval(df['General'][1]) 
-# parses string entries in dataframe and automatically organizes into dict
-# Then check for columns of interest and add to extract function
-
-#TODO Some entries are lists, which ast cannot deal with directly
 
 def safe_parse(entry):
     """Safely parse a string to dict using ast.literal_eval."""
@@ -116,70 +119,35 @@ bacdive_df = pd.DataFrame({
 
 
 
+flattened_rows = []
 
+# extract from nested dicts
+def extract_kv_pairs(obj, collector):
+    if isinstance(obj, dict):
+        for k, v in obj.items():
+            if isinstance(v, (dict, list)):
+                extract_kv_pairs(v, collector)
+            else:
+                collector[k].append(v)
+    elif isinstance(obj, list):
+        for item in obj:
+            extract_kv_pairs(item, collector)
 
-
-
-
-# untested
-phys_keys = ["oxygen tolerance", "temperature range", "salinity"]
-phys_data = extract_fields_from_column(df["Physiology and metabolism"], phys_keys)
-
-bacdive_df = pd.concat([
-    bacdive_df,
-    phys_data
-], axis=1)
-
-
-
-#print(bacdive_df.head)
-#bacdive_df.to_csv('data/bacdive_typestrains_filtered.csv', index=False)
-'''
-def extract_info(row):
+for entry in df["Physiology and metabolism"]:
     try:
-        result = {}
-        # convert string to dictionary (if needed)
-        taxonomy_info = ast.literal_eval(row["Name and taxonomic classification"]) if isinstance(row["Name and taxonomic classification"], str) else row["Name and taxonomic classification"]
-        morphology_info = ast.literal_eval(row["Morphology"]) if isinstance(row["Morphology"], str) else row["Morphology"]
-        physiology_info = ast.literal_eval(row["Physiology and metabolism"]) if isinstance(row["Physiology and metabolism"], str) else row["Physiology and metabolism"]
-
-        #species
-        result["Species"] = taxonomy_info.get("species", None)
-
-        #morphology and gram stain
-        cell_morphology = morphology_info.get("cell morphology", {})
-        result["Morphology"] = cell_morphology.get("cell shape", None)
-        result["Gram Stain"] = cell_morphology.get("gram stain", None)
-
-        #metabolite tests
-        metabolite_tests = physiology_info.get("metabolite tests", [])
-        for test in metabolite_tests:
-            test_name = test.get("metabolite", "Unknown")
-            result[f"Metabolite: {test_name}"] = test.get("utilization activity", None)
-
-        #enzyme tests
-        enzyme_tests = physiology_info.get("enzymes", [])
-        for enzyme in enzyme_tests:
-            enzyme_name = enzyme.get("value", "Unknown")
-            result[f"Enzyme: {enzyme_name}"] = enzyme.get("activity", None)
-
-        #API tests
-        api_tests = physiology_info.get("API zym", {})
-        for api_test, result_value in api_tests.items():
-            if api_test != "@ref":  # skip reference keys
-                result[f"API Test: {api_test}"] = result_value
-        return result
+        data = ast.literal_eval(entry) if pd.notna(entry) else {}
+        collector = defaultdict(list)
+        extract_kv_pairs(data, collector)
+        flat = {k: v if len(v) > 1 else v[0] for k, v in collector.items()}
+        flattened_rows.append(flat)
     except Exception as e:
-        return {"Species": None, "Error": str(e)}
+        flattened_rows.append({})
+
+physio_df = pd.DataFrame(flattened_rows)
+combined_df = pd.concat([bacdive_df.reset_index(drop=True), physio_df.reset_index(drop=True)], axis=1)
 
 
-extracted_df = df.apply(extract_info, axis=1).apply(pd.Series)
-extracted_df.dropna(how='all', inplace=True)
-extracted_df.dropna(axis=1, how='all', inplace=True)
-extracted_df.to_csv('data/bacdive_typestrains_extracted.csv', index=False)
 
+print(combined_df.head)
+combined_df.to_csv('data/bacdive_typestrains_filtered.csv', index=False)
 
-#import ace_tools as tools
-#tools.display_dataframe_to_user(name="Extracted BacDive Data", dataframe=extracted_df)
-# ?
-'''

@@ -1,0 +1,63 @@
+df['Physiology and metabolism'][2]
+{'@ref': 69552, 'value': 'beta-glucuronidase', 'activity': '-', 'ec': '3.2.1.31'}, {'@ref': 69552, 'value': 'N-acetyl-beta-glucosaminidase', 'activity': '-', 'ec': '3.2.1.52'}, {'@ref': 69552, 'value': 'glutamate decarboxylase', 'activity': '-', 'ec': '4.1.1.15'}, {'@ref': 69552, 'value': 'alpha-fucosidase', 'activity': '-', 'ec': '3.2.1.51'}, {'@ref': 69552, 'value': 'alkaline phosphatase', 'activity': '-', 'ec': '3.1.3.1'}],
+
+"activity" here is being extracted without relating to the test value, need to fix this.
+
+'@ref': 69552, 'value': 'beta-glucuronidase', 'activity': '-',
+
+ I would need the value of 'value' as a key, then the value of 'activity' as a value.
+
+
+same for "utilization activity" like in the following data
+
+'metabolite utilization': [{'@ref': 68381, 'Chebi-ID': 16199, 'metabolite': 'urea', 'utilization activity': '-', 'kind
+ of utilization tested': 'hydrolysis'}
+
+I would like metabolite as the key and +/- as the value
+
+
+I think I need to parse for every initial key...
+
+In [10]: ast.literal_eval(df['Physiology and metabolism'][2]).keys()
+Out[10]: dict_keys(['oxygen tolerance', 'spore formation', 'halophily', 'metabolite utilization', 'metabolite tests', 'enzymes', 'fatty acid profile'])
+In [17]: ast.literal_eval(df['Physiology and metabolism'][6]).keys()
+Out[17]: dict_keys(['oxygen tolerance', 'spore formation', 'halophily', 'metabolite utilization', 'antibiotic resistance', 'metabolite production', 'metabolite tests', 'enzymes', 'fatty acid profile'])
+
+because they each have different formatting
+
+
+counts of each initial key:
+
+metabolite utilization: 11162                             
+oxygen tolerance: 10944                                   
+enzymes: 10508                                            
+halophily: 7947                                           
+metabolite production: 7522                               
+observation: 6260                                         
+metabolite tests: 4934                                    
+spore formation: 4925                                     
+API zym: 4236                                             
+antibiotic resistance: 2361                               
+fatty acid profile: 1976                                  
+API 50CHac: 1561                                          
+API biotype100: 1470                                      
+API 20NE: 1235                                            
+API 20E: 897                                              
+API coryne: 885                                           
+murein: 821                                               
+compound production: 774                                  
+API rID32A: 525                                           
+nutrition type: 481                                       
+API rID32STR: 204                                         
+API NH: 188                                               
+API 20A: 110                                              
+tolerance: 107                                            
+API ID32STA: 84                                           
+API CAM: 49                                               
+API ID32E: 41                                             
+antibiogram: 36                                           
+API 20STR: 22                                             
+API LIST: 20                                              
+API 50CHas: 9                                             
+API STA: 7 
+

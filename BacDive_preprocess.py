@@ -91,20 +91,20 @@ def extract_motility(morphology_info):
     else:
         return None
 
-def extract_fields_from_column(column_data, top_level_keys):
-    """
-        parses a stringified dict and extract multiple keys.
+#def extract_fields_from_column(column_data, top_level_keys):
+#    """
+#        parses a stringified dict and extract multiple keys.
+#        returns a dataframe
+#    """
+#    def extract(entry):
+#        try:
+#            parsed = ast.literal_eval(entry) if isinstance(entry, str) else entry
+#            return {key: parsed.get(key, None) for key in top_level_keys}
+#        except Exception as e:
+#            print(f"Failed to parse: {entry}, Error: {e}")
+#            return {key: None for key in top_level_keys} 
+#    return column_data.apply(extract)
 
-        returns a dataframe
-    """
-    def extract(entry):
-        try:
-            parsed = ast.literal_eval(entry) if isinstance(entry, str) else entry
-            return {key: parsed.get(key, None) for key in top_level_keys}
-        except Exception as e:
-            print(f"Failed to parse: {entry}, Error: {e}")
-            return {key: None for key in top_level_keys} 
-    return column_data.apply(extract)
 
 
 bacdive_df = pd.DataFrame({
@@ -118,20 +118,43 @@ bacdive_df = pd.DataFrame({
 
 
 
-
 flattened_rows = []
 
 # extract from nested dicts
+#def extract_kv_pairs(obj, collector):
+#    if isinstance(obj, dict):
+#        for k, v in obj.items():
+#            if isinstance(v, (dict, list)):
+#                extract_kv_pairs(v, collector)
+#            else:
+#                collector[k].append(v)
+#    elif isinstance(obj, list):
+#        for item in obj:
+#            extract_kv_pairs(item, collector)
+
+
 def extract_kv_pairs(obj, collector):
     if isinstance(obj, dict):
-        for k, v in obj.items():
-            if isinstance(v, (dict, list)):
-                extract_kv_pairs(v, collector)
-            else:
-                collector[k].append(v)
+        # special case 1: use value as key, activity as value
+        if "value" in obj and "activity" in obj:
+            key = f"enzyme_{obj['value']}"
+            #collector[obj["value"]].append(obj["activity"])
+            collector[key].append(obj["activity"])
+        # special Case 2: Metabolite utilization
+        elif "metabolite" in obj and "utilization activity" in obj:
+            key = f"metabolite_{obj['metabolite']}"
+            collector[key].append(obj["utilization activity"])
+            #collector[obj["metabolite"]].append(obj["utilization activity"])
+        else:
+            for k, v in obj.items():
+                if isinstance(v, (dict, list)):
+                    extract_kv_pairs(v, collector)
+                else:
+                    collector[k].append(v)
     elif isinstance(obj, list):
         for item in obj:
             extract_kv_pairs(item, collector)
+
 
 for entry in df["Physiology and metabolism"]:
     try:

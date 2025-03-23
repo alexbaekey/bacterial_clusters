@@ -1,0 +1,80 @@
+
+https://www.biomerieux.com/us/en/our-offer/clinical-products/api.html?anchor=accordion-683661eadc-item-499f2e4665
+https://microbiologyinfo.com/api-20e-test/
+https://www.biomerieux.com/content/dam/biomerieux-com/03----our-offer/clinical/in-hospital--in-lab/products/api%C2%AE-id-strip-range-and-apiweb%E2%84%A2/documents/18_api-ref-guide_v7.pdf.coredownload.pdf?topicOfInterest=API%C2%AE%20ID%20STRIPS&anchor=contact-products-tab
+
+on biomerieux website:
+
+##### API PANELS ######
+###Healthcare applications:
+
+#API Gram Negative Identification
+API 20E	18-24 hour identification of Enterobacteriacae and other non-fastidious gram negative bacteria
+API Rapid 20E	4-hour identification of Enterobacteriaceae
+API 20NE	24 to 48-hour identification of Gram negative non-Enterobacteriaceae
+API NH	2-hour identification of Neisseria Haemophilus and Branhamella catarrhalis
+
+#API Gram Positive Identification
+API Staph	Overnight identification of clinical staphylococci and micrococci
+RAPIDEC® Staph	2-hour identification of the commonly occurring staphylococci
+API 20 Strep	4 or 24-hour identification of streptococci and enterococci
+API Coryne	24-hour identification of Corynebacteria and coryne-like organisms
+
+#API Anaerobe Identification
+API 20A	24-hour identification of anaerobes
+Rapid ID 32A	4-hour identification of anaerobes
+
+API Yeast Identification
+API 20C AUX	48 to 72-hour identification of yeasts
+
+Others
+API 50 CH	Performance of carbohydrate metabolism tests
+API ZYM	Semiquantitation of enzymatic activities  
+
+###Product Safety applications
+
+#API Gram negative Identification	 
+API 20E	Species/subspecies identification of Enterobacteriaceae and group/species identification of non-fermenting Gram negative bacteria
+API Rapid 20E	4-hour identification of Enterobacteriaceae
+API 20NE 	24 to 48-hour identification of Gram negative non-Enterobacteriaceae
+API Campy	24-hour identification of Campylobacter species
+
+#API Gram positive Identification
+API Staph	Overnight identification of clinical staphylococci and micrococci
+API 20 Strep	4 or 24-hour identification of streptococci and enterococci
+API Coryne	24-hour identification of Corynebacteria and coryne-like organisms
+API Listeria	24-hour identification of all Listeria species
+
+#API Anaerobe Identification
+API 20A	24-hour identification of anaerobes
+Rapid ID 32 A	4-hour identification of anaerobes
+
+#API Yeast Identification
+API 20C AUX	48 to 72-hour identification of yeasts
+ID 32 C	24-hour identification of yeasts 
+
+#Others
+API 50 CH	Performance of carbohydrate metabolism tests
+API CHL Medium 	Identification of Lactobacillus
+API CHB Medium	 Identification of Bacillus
+API ZYM® 	Semiquantification of enzymatic activities
+API 20E Reagent QC Test	Performance of QC testing for ferric chloride, alpha-naphthol, sulfaninic acid, NN-Dimethyl-Alpha-Naphthylamine and Kovac's Reagent
+McFarland Kit	Standards for McFarland 0.5, 1, 2, 3, 4, 5
+
+
+
+##### TESTS IN PANELS #####
+What tests are in each of these panels?
+https://microbiologyinfo.com/api-20e-test/
+
+API 20E
+API 20NE
+API NH
+API STAPH
+API 20STREP
+API CORYNE
+API 20A
+API 20C
+API 50CH
+API ZYM
+

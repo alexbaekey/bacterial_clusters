@@ -1,8 +1,0 @@
-df['Physiology and metabolism'][2]
-{'@ref': 69552, 'value': 'beta-glucuronidase', 'activity': '-', 'ec': '3.2.1.31'}, {'@ref': 69552, 'value': 'N-acetyl-beta-glucosaminidase', 'activity': '-', 'ec': '3.2.1.52'}, {'@ref': 69552, 'value': 'glutamate decarboxylase', 'activity': '-', 'ec': '4.1.1.15'}, {'@ref': 69552, 'value': 'alpha-fucosidase', 'activity': '-', 'ec': '3.2.1.51'}, {'@ref': 69552, 'value': 'alkaline phosphatase', 'activity': '-', 'ec': '3.1.3.1'}],
-
-"activity" here is being extracted without relating to the test value, need to fix this.
-
-'@ref': 69552, 'value': 'beta-glucuronidase', 'activity': '-',
-
- I would need the value of 'value' as a key, then the value of 'activity' as a value.

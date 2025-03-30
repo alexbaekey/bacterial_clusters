@@ -10,7 +10,7 @@ merged_df = pd.merge(gtdb_df, bacdive_df, on='species', how='inner')
 gtdb_paths_df = pd.read_csv('~/datasets/BIOINFO_DATA/GTDB/release220/220.0/genomic_files_reps/gtdb_genomes_reps_r220/genome_paths.tsv', sep=r'\s+', names=['gtdb_id','genome_path']) # genome fastas
 
 
-prefix = '~/datasets/BIOINFO_DATA/GTDB/release220/220.0/genomic_files_reps/gtdb_genomes_reps_r220/'
+prefix = '/home/ab/datasets/BIOINFO_DATA/GTDB/release220/220.0/genomic_files_reps/gtdb_genomes_reps_r220/'
 gtdb_paths_df['genome_path'] = prefix + gtdb_paths_df['genome_path'] + gtdb_paths_df['gtdb_id']
 
 gtdb_paths_df['gtdb_id'] = gtdb_paths_df['gtdb_id'].str[:15]

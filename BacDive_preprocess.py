@@ -134,6 +134,11 @@ def extract_selected_api_tests(entry):
     return {k: v[0] if len(v) == 1 else v for k, v in merged_results.items()}
 
 df_api_tests = df['Physiology and metabolism'].apply(extract_selected_api_tests).apply(pd.Series)
+
+rows_with_api = df_api_tests.notna().any(axis=1)
+bacdive_df = bacdive_df[rows_with_api].reset_index(drop=True)
+df_api_tests = df_api_tests[rows_with_api].reset_index(drop=True)
+
 bacdive_df = pd.concat([bacdive_df, df_api_tests], axis=1)
 bacdive_df.to_csv('data/bacdive_typestrains_filtered.csv', index=False)
 

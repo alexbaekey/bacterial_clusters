@@ -12,8 +12,6 @@ gtdb_paths_df['genome_path'] = prefix + gtdb_paths_df['genome_path'] + gtdb_path
 gtdb_paths_df['gtdb_id'] = gtdb_paths_df['gtdb_id'].str[:15]
 final_df = pd.merge(merged_df, gtdb_paths_df, on='gtdb_id', how='inner')
 
-
-# Paths to genome files (can be .fna or .fa files)
 #query_genomes = [
 #    "genomes/query1.fna",
 #    "genomes/query2.fna",
@@ -26,7 +24,6 @@ final_df = pd.merge(merged_df, gtdb_paths_df, on='gtdb_id', how='inner')
 query_genomes = list(final_df['genome_path'][0:300])
 reference_genomes = list(final_df['genome_path'][0:300])
 
-# Write genome paths to text files (required by FastANI for batch mode)
 with open("query_list.txt", "w") as f:
     for genome in query_genomes:
         f.write(genome + "\n")
@@ -35,7 +32,6 @@ with open("ref_list.txt", "w") as f:
     for genome in reference_genomes:
         f.write(genome + "\n")
 
-# Output file to store ANI results
 output_file = "many_to_many_ani_output.txt"
 cmd = [
     "fastANI",
@@ -43,17 +39,12 @@ cmd = [
     "--rl", "ref_list.txt",
     "--matrix",
 #  --fragLen 1500 \
+    "--fragLen", "1000",
     "--threads", "8",
     "-o", output_file
 ]
 
-print("Running FastANI...")
 subprocess.run(cmd, check=True)
-print(f"Done! Results saved in {output_file}")
-
-
-
-
 
 
 

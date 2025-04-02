@@ -91,20 +91,6 @@ def extract_motility(morphology_info):
     else:
         return None
 
-#def extract_fields_from_column(column_data, top_level_keys):
-#    """
-#        parses a stringified dict and extract multiple keys.
-#        returns a dataframe
-#    """
-#    def extract(entry):
-#        try:
-#            parsed = ast.literal_eval(entry) if isinstance(entry, str) else entry
-#            return {key: parsed.get(key, None) for key in top_level_keys}
-#        except Exception as e:
-#            print(f"Failed to parse: {entry}, Error: {e}")
-#            return {key: None for key in top_level_keys} 
-#    return column_data.apply(extract)
-
 
 
 bacdive_df = pd.DataFrame({
@@ -116,61 +102,38 @@ bacdive_df = pd.DataFrame({
 })
 
 
+# convert from string to dict if necessary
+df['Physiology and metabolism'] = df['Physiology and metabolism'].apply(
+    lambda x: ast.literal_eval(x) if isinstance(x, str) else x
+)
 
+included_panels = {
+    "API zym",
+    "API 50CHac",
+    "API biotype100",
+    "API 20NE",
+    "API 20E",
+    "API coryne"
+}
 
-flattened_rows = []
+def extract_selected_api_tests(entry):
+    merged_results = defaultdict(list)
+    if isinstance(entry, dict):
+        for api_key, tests in entry.items():
+            if api_key in included_panels and isinstance(tests, dict):
+                for test, outcome in tests.items():
+                    test_lower = test.lower()
+                    if "@ref" in test_lower or \
+                    "control" in test_lower or \
+                    "value" in test_lower or \
+                    "chebi-id" in test_lower:
+                        continue  # skip unwanted
+                    if outcome not in merged_results[test]:
+                        merged_results[test].append(outcome)
+    # single-item lists to scalar
+    return {k: v[0] if len(v) == 1 else v for k, v in merged_results.items()}
 
-# extract from nested dicts
-#def extract_kv_pairs(obj, collector):
-#    if isinstance(obj, dict):
-#        for k, v in obj.items():
-#            if isinstance(v, (dict, list)):
-#                extract_kv_pairs(v, collector)
-#            else:
-#                collector[k].append(v)
-#    elif isinstance(obj, list):
-#        for item in obj:
-#            extract_kv_pairs(item, collector)
-
-
-def extract_kv_pairs(obj, collector):
-    if isinstance(obj, dict):
-        # special case 1: use value as key, activity as value
-        if "value" in obj and "activity" in obj:
-            key = f"enzyme_{obj['value']}"
-            #collector[obj["value"]].append(obj["activity"])
-            collector[key].append(obj["activity"])
-        # special Case 2: Metabolite utilization
-        elif "metabolite" in obj and "utilization activity" in obj:
-            key = f"metabolite_{obj['metabolite']}"
-            collector[key].append(obj["utilization activity"])
-            #collector[obj["metabolite"]].append(obj["utilization activity"])
-        else:
-            for k, v in obj.items():
-                if isinstance(v, (dict, list)):
-                    extract_kv_pairs(v, collector)
-                else:
-                    collector[k].append(v)
-    elif isinstance(obj, list):
-        for item in obj:
-            extract_kv_pairs(item, collector)
-
-
-for entry in df["Physiology and metabolism"]:
-    try:
-        data = ast.literal_eval(entry) if pd.notna(entry) else {}
-        collector = defaultdict(list)
-        extract_kv_pairs(data, collector)
-        flat = {k: v if len(v) > 1 else v[0] for k, v in collector.items()}
-        flattened_rows.append(flat)
-    except Exception as e:
-        flattened_rows.append({})
-
-physio_df = pd.DataFrame(flattened_rows)
-combined_df = pd.concat([bacdive_df.reset_index(drop=True), physio_df.reset_index(drop=True)], axis=1)
-
-
-
-print(combined_df.head)
-combined_df.to_csv('data/bacdive_typestrains_filtered.csv', index=False)
+df_api_tests = df['Physiology and metabolism'].apply(extract_selected_api_tests).apply(pd.Series)
+bacdive_df = pd.concat([bacdive_df, df_api_tests], axis=1)
+bacdive_df.to_csv('data/bacdive_typestrains_filtered.csv', index=False)
 

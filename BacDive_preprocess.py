@@ -50,6 +50,13 @@ def extract_species(taxonomy_info):
     else:
         return None
 
+def extract_family(taxonomy_info):
+    info = safe_parse(taxonomy_info)
+    if info:
+        return info.get("family")
+    else:
+        return None
+
 def extract_description(general_info):
     info = safe_parse(general_info)
     if info:
@@ -95,6 +102,7 @@ def extract_motility(morphology_info):
 
 bacdive_df = pd.DataFrame({
     "species": df["Name and taxonomic classification"].apply(extract_species),
+    "family": df["Name and taxonomic classification"].apply(extract_family),
     "description": df["General"].apply(extract_description),
     "gram_stain": df["Morphology"].apply(extract_gram_morphology),
     "cell_shape": df["Morphology"].apply(extract_cell_shape),
